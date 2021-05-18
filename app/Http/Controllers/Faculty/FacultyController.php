@@ -14,7 +14,10 @@ class FacultyController extends Controller
     } 
 
     public function index() {
-        $faculties = Faculty::get();
+
+        $data = Faculty::get();
+
+        auth()->
 
         return view('faculty.index', [
             'faculties' => $faculties
