@@ -22,6 +22,8 @@ class FacultyController extends Controller
         return view('faculty.index', [
             'faculties' => $faculties
         ]);
+        
+        // testtest
     }
 
     public function createFaculty(Request $request)
