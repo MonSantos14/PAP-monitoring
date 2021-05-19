@@ -11,7 +11,7 @@
         <form action="{{ route('faculty') }}" method="post" class="faculty-form" enctype="multipart/form-data">
           @csrf
           <h2 class="text-xl px-1">
-            <span class="text-primary">Add</span> Faculty
+            <span class="text-primary blue-text">Edit</span> Faculty
           </h2>
           @error('fie_input')
                 <div class="text-warning-plain">
@@ -87,7 +87,7 @@
             />
             <label class="label" for="">First Name</label>
           </div>
-          <button class="btn btn-secondary" type="submit">Add Faculty</button>
+          <button class="btn btn-secondary blue" type="submit">Save Changes</button>
         </form>
 
 

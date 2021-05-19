@@ -144,6 +144,10 @@ body {
     text-decoration: none;
     border-radius: 25px;
 }
+
+button {
+    cursor: pointer;
+}
 .btn-sign {
     width: 90%;
     background: #c57865;
@@ -166,6 +170,13 @@ body {
     color: #fff;
 }
 
+.btn-search {
+    border-radius: 2px;
+    padding: 9.5px 15px;
+    background-color: #c57865;
+    color: #fff;
+}
+
 .btn-link {
     color: #fff;
     background: none;
@@ -173,6 +184,10 @@ body {
     outline: none;
     border: none;
     cursor: pointer;
+}
+
+.blue-text {
+    color: #0769c4;
 }
 
 .btn-small {
@@ -235,6 +250,16 @@ body {
 
 .width-4-5 {
     width: 90%;
+}
+
+.width-120 {
+    width: 110px;
+    height: 115px;
+}
+
+.border-curve {
+    border: 1px solid #efefef;
+    border-radius: 10px;
 }
 
 .width-full {
@@ -445,7 +470,7 @@ body {
     transition: all 0.35s ease-out;
 }
 .search-block:focus {
-    width: 90%;
+    width: 70%;
     border: 1px solid rgba(197, 120, 101, 0.35);
 }
 
@@ -484,13 +509,14 @@ body {
 .faculty .faculty-item {
     background: #fff;
     border-radius: 10px;
+    margin-right: 15px;
     border: 1px solid #efefef;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
     padding: 10px 15px 0px 15px;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 20px;
-    width: 90%;
+    width: 75%;
     transform-origin: 0;
     transition: 0.1s all ease-in;
 }
@@ -507,6 +533,12 @@ body {
     margin-left: 3px;
     padding: 3px 5px;
 }
+
+.justify-between {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* .faculty .faculty-item:hover {
     transform: scale(1.05);
 } */

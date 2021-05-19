@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Faculty\FacultyController;
+use App\Http\Controllers\Faculty\EditFacultyController;
 use App\Http\Controllers\Proposal\CreateProposalController;
 use App\Http\Controllers\Proposal\DraftController;
 
@@ -20,6 +21,7 @@ use App\Http\Controllers\Proposal\DraftController;
 |
 */
 
+#AUTHENTICATION
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
@@ -30,8 +32,13 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+#FACULTY
 Route::get('/faculty', [FacultyController::class, 'index'])->name('faculty');
 Route::post('/faculty', [FacultyController::class, 'createFaculty']);
+
+Route::get('faculty/edit', [FacultyController::class, 'edit'])->name('edit-faculty');
+Route::post('faculty/edit', [FacultyController::class, 'editFaculty']);
+
 
 Route::get('/create-proposal', [CreateProposalController::class, 'index'])->name('create-proposal');
 Route::post('/create-proposal', [CreateProposalController::class, 'createProposal']);

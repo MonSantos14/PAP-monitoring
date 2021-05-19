@@ -13,9 +13,10 @@ class Faculty extends Model
         'faculty_id',
         'faculty_firstname',
         'faculty_lastname',
+        'faculty_fullname',
         'faculty_email',
         'faculty_image',
-           
+        
     ];
 
     public function user() {

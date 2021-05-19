@@ -15,15 +15,22 @@ class FacultyController extends Controller
 
     public function index() {
 
-        $data = Faculty::get();
+        $search = request()->query('search');
+        
+        $faculties = auth()->user()->createFaculty;
 
-        auth()->
-
-        return view('faculty.index', [
+        if ($search) {
+            $faculties = Faculty::where('faculty_fullname', 'LIKE', "%{$search}%")
+                                    ->get();
+        }else {
+            $faculties = auth()->user()->createFaculty;
+        }
+        
+        return view('faculty.index', [ 
             'faculties' => $faculties
         ]);
         
-        // testtest
+        
     }
 
     public function createFaculty(Request $request)
@@ -37,6 +44,7 @@ class FacultyController extends Controller
         ]);
 
         $newImageName = time() . '-' . $request->faculty_firstname . '.' . $request->faculty_image->extension();
+        $fullname = $request->faculty_firstname . ' ' . $request->faculty_lastname;
 
         $request->faculty_image->move(public_path('images'), $newImageName);
         
@@ -44,10 +52,20 @@ class FacultyController extends Controller
             'faculty_id' => $request->faculty_id,
             'faculty_firstname' => $request->faculty_firstname,
             'faculty_lastname' => $request->faculty_lastname,
+            'faculty_fullname' => $fullname,
             'faculty_email' => $request->faculty_email,
             'faculty_image' => $newImageName
         ]);
         
         return redirect()->route('faculty');
+    }
+
+    public function edit()
+    {
+        $faculties = auth()->user()->createFaculty;
+
+        return view('faculty.edit', [
+            'faculties' => $faculties,
+        ]);
     }
 }

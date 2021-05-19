@@ -19,6 +19,7 @@ class CreateFacultiesTable extends Migration
             $table->string('faculty_id');
             $table->string('faculty_firstname');
             $table->string('faculty_lastname');
+            $table->string('faculty_fullname');
             $table->string('faculty_email')->unique();
             $table->string('faculty_image');
             $table->timestamps();
