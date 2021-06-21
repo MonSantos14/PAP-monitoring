@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
 class Proposal extends Model
 {
     use HasFactory;
@@ -17,7 +16,27 @@ class Proposal extends Model
         'proposal_status'   
     ];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
+    }
+
+    public function leader() {
+        return $this->hasMany(Proposal::class);
+    }
+
+    public function proposalmember()
+    {
+        return $this->hasMany(ProposalMember::class);
+    }
+
+    public function proposalpartner()
+    {
+        return $this->hasMany(ProposalPartners::class);
+    }
+
+    public function requirements()
+    {
+        return $this->hasOne(ProposalRequirements::class);
     }
 }

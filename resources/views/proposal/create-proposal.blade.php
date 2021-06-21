@@ -4,13 +4,12 @@
 <section class="section-A">
     <div class="contain">
       <div class="buttons">
-        <a class="btn btn-default" href="college.html" class="btn">Go Back</a>
+        <a class="btn btn-default" href="{{ route('dashboard') }}" class="btn">Go Back</a>
       </div>
 
         <div class="center-column">
-        
             <div class="width-3 self-center">
-                <form action="{{ route('create-proposal') }}" method="post" class="faculty-form">
+                <form action="{{ route('create-proposal')}}" method="post" class="faculty-form">
                     @csrf
                     <h2 class="text-xl px-1">
                         <span class="text-primary">Create</span> Project Proposal
@@ -47,7 +46,7 @@
                         />
                         <label class="label" for="proposal_duration">Project Duration (Month/s)</label>
                     </div>
-                    @error('proposal_leader')
+                    {{-- @error('proposal_leader')
                         <div class="text-warning-plain">
                             {{$message}}
                         </div>
@@ -62,6 +61,21 @@
                         value=""
                         />
                         <label class="label" for="proposal_leader">Project Leader</label>
+                    </div> --}}
+
+                    <div>
+                        <input class="block" type="file" accept=".pdf" name="proposal_CRP">
+                        <label for="proposal_CRP">Capsule Research Proposal</label>
+                        <input class="block" type="file" accept=".pdf" name="proposal_LIB">
+                        <label for="proposal_LIB">Line Item Budget</label>
+                        <input class="block" type="file" accept=".pdf" name="proposal_CVP">
+                        <label for="proposal_CVP">Curriculum Vitae of the Program/Project Leader</label>
+                        <input class="block" type="file" accept=".pdf" name="proposal_SDRPM">
+                        <label for="proposal_SDRPM">Curriculum Vitae of the Program/Project Leader</label>
+                        <input class="block" type="file" accept=".pdf" name="proposal_CERT">
+                        <label for="proposal_CERT">Certification</label>
+                        <input class="block" type="file" accept=".pdf" name="proposal_WP">
+                        <label for="proposal_WP">Work Plan</label>
                     </div>
 
                     <button class="btn btn-secondary" type="submit">
@@ -69,7 +83,6 @@
                     </button>
                 </form>
             </div>
-
         </div>
     </div>
   </section>

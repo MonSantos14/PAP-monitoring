@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFacultyFullnameToFacultiesTable extends Migration
+class CreateProposalPartnersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddFacultyFullnameToFacultiesTable extends Migration
      */
     public function up()
     {
-        Schema::table('faculties', function (Blueprint $table) {
-            $table->string('faculty_fullname');
+        Schema::create('proposal_partners', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('partner_id');
+            $table->foreignId('proposal_id');
+            $table->string('partner_name');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddFacultyFullnameToFacultiesTable extends Migration
      */
     public function down()
     {
-        Schema::table('faculties', function (Blueprint $table) {
-            $table->dropColumn('faculty_fullname');
-        });
+        Schema::dropIfExists('proposal_partners');
     }
 }

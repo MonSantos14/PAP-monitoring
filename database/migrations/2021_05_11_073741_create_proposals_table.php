@@ -18,7 +18,7 @@ class CreateProposalsTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('proposal_title');
             $table->integer('proposal_duration');
-            $table->string('proposal_leader');
+            $table->string('proposal_leader')->nullable();
             $table->char('proposal_status')->default('new');
             $table->timestamps();
         });

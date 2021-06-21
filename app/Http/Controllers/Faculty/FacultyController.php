@@ -29,8 +29,6 @@ class FacultyController extends Controller
         return view('faculty.index', [ 
             'faculties' => $faculties
         ]);
-        
-        
     }
 
     public function createFaculty(Request $request)
@@ -47,12 +45,15 @@ class FacultyController extends Controller
         $fullname = $request->faculty_firstname . ' ' . $request->faculty_lastname;
 
         $request->faculty_image->move(public_path('images'), $newImageName);
-        
+        $college = auth()->user()->name;
+
         $request->user()->createFaculty()->create([
             'faculty_id' => $request->faculty_id,
+            'faculty_college' => $college,
             'faculty_firstname' => $request->faculty_firstname,
             'faculty_lastname' => $request->faculty_lastname,
             'faculty_fullname' => $fullname,
+            'faculty_type' => $request->faculty_type,
             'faculty_email' => $request->faculty_email,
             'faculty_image' => $newImageName
         ]);
@@ -60,12 +61,50 @@ class FacultyController extends Controller
         return redirect()->route('faculty');
     }
 
-    public function edit()
+    public function edit($id)
     {
         $faculties = auth()->user()->createFaculty;
-
+        $data = Faculty::where('id', 'LIKE', "{$id}")->get();
+        // dd($data);
         return view('faculty.edit', [
             'faculties' => $faculties,
+        ]) ->with('faculty', Faculty::where('id', 'LIKE', "{$id}")
+            ->first());
+    }
+
+    public function update(Request $request, $id)
+    {
+        $fullname = $request->faculty_firstname . ' ' . $request->faculty_lastname;
+
+        Faculty::where('id', $id)
+                ->update([
+                    'faculty_id' => $request->faculty_id,
+                    'faculty_firstname' => $request->faculty_firstname,
+                    'faculty_lastname' => $request->faculty_lastname,
+                    'faculty_fullname' => $fullname,
+                    'faculty_email' => $request->faculty_email
         ]);
+        
+        return redirect()->route('faculty');
+            
+    }
+
+    public function imageLayout($id)
+    {
+        $faculties = auth()->user()->createFaculty;
+        $data = Faculty::where('id', 'LIKE', "{$id}")->get();
+        // dd($data);
+        return view('faculty.edit-image', [
+            'faculties' => $faculties,
+        ]) ->with('faculty', Faculty::where('id', 'LIKE', "{$id}")->first());
+    }
+
+    public function editImage(Request $request, $id) {
+        Faculty::where('id', $id)
+                ->update([
+                    'faculty_image' => $request->faculty_image
+        ]);
+        
+        return redirect()->route('faculty');
     }
 }

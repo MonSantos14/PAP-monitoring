@@ -20,7 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'is_admin' 
+        'user_type' 
     ];
 
     /**
@@ -39,7 +39,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime', 
     ];
 
     public function createProposal() {
@@ -48,5 +48,9 @@ class User extends Authenticatable
 
     public function createFaculty() {
         return $this->hasMany(Faculty::class);
+    }
+
+    public function partners() {
+        return $this->hasMany(Partner::class);
     }
 }   

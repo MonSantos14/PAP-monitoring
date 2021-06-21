@@ -26,6 +26,12 @@ body {
     gap: 8px;
 }
 
+.top-right {
+    position: absolute;
+    top: 0;
+    left: 170px;
+}
+
 .center-row {
     display: flex;
     justify-content: center;
@@ -132,8 +138,39 @@ body {
     color: #c57865;
 }
 
+.text-light {
+    color: #fff;
+}
+
 .px-1 {
     padding: 0 10px;
+}
+
+.p-1 {
+    padding: 10px;
+}
+.p-2 {
+    padding: 20px;
+}
+.p-3 {
+    padding: 30px;
+}
+.p-4 {
+    padding: 40px;
+}
+
+.m-1 {
+    margin: 10px;
+}
+.m-2 {
+    margin: 20px;
+}
+.m-3 {
+    margin: 30px;
+}
+
+.mt-3 {
+    margin: 30px 0px;
 }
 
 .btn {
@@ -188,6 +225,14 @@ button {
 
 .blue-text {
     color: #0769c4;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.block {
+    display: block;
 }
 
 .btn-small {
@@ -257,13 +302,30 @@ button {
     height: 115px;
 }
 
+.width-160 {
+    width: 160px;
+}
+
 .border-curve {
     border: 1px solid #efefef;
     border-radius: 10px;
 }
 
+.border-blue {
+    border: 1px solid #0769c4;
+}
+
 .width-full {
     width: 100%;
+}
+
+.height-full {
+    height: 100%;
+}
+
+.bg-none {
+    background: transparent;
+    border: none;
 }
 
 .edit {
@@ -272,6 +334,24 @@ button {
 
 .blue {
     background: #0769c4;
+}
+
+.blue-border:focus {
+    border: 1px solid #0769c4;
+}
+
+.blue-bg:hover {
+    background-color: #0769c4;
+}
+
+.img-edit {
+    position: absolute;
+    top: 10px;
+}
+
+.relative {
+    margin-top: 20px;
+    position: relative;
 }
 
 .navbar {
@@ -346,7 +426,7 @@ button {
 .proposal,
 .rmo-proposal {
     width: 100%;
-    height: 70vh;
+    height: 80vh;
     margin-top: 15px;
     border-radius: 10px;
     border: 1px solid #efefef;
@@ -539,6 +619,10 @@ button {
     justify-content: space-between;
 }
 
+.justify-top {
+    justify-content: flex-start;
+}
+
 /* .faculty .faculty-item:hover {
     transform: scale(1.05);
 } */
@@ -666,4 +750,17 @@ input:not([value=""]) + label {
 
 #facultyIdInput:not([value=""]) + label {
     color: #c57865;
+}
+
+input.blue-border:focus,
+input.blue-border:not([value=""]) {
+    border: #0769c4 1px solid;
+    box-shadow: 0px 2px 2px rgba(37, 68, 168, 0.15);
+}
+input:focus + label.blue-text,
+input:not([value=""]) + label.blue-text {
+    transform: translateY(-25px);
+    padding: 0px 5px;
+    color: #0769c4;
+    font-size: 0.85rem;
 }

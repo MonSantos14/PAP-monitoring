@@ -8,96 +8,98 @@
       </div>
 
       <div class="grid-2">
-        <form action="{{ route('faculty') }}" method="post" class="faculty-form" enctype="multipart/form-data">
-          @csrf
+        <div class="faculty-form">
           <h2 class="text-xl px-1">
-            <span class="text-primary">Add</span> Faculty
+            <span class="text-primary blue-text">Edit</span> Faculty
           </h2>
-          @error('fie_input')
+          @error('faculty_image')
                 <div class="text-warning-plain">
                     {{$message}}
                 </div>
           @enderror
-          <div class="form-control">
-            <input 
-            type="file"
-            name="faculty_image"
-            id="file-input"
-            >
+          <div class="flex relative">
+            <form class="" action="{{ route('edit-image', $faculty->id)}}" method="post">
+                @csrf
+                @method('PUT')
+              <div class="center-column">
+                <img class="width-2 border-blue" src="{{ asset('images/'.$faculty->faculty_image) }}" alt="">
+                <input type="file" class="width-2" name="faculty_image">
+              </div>
+              <button class="btn blue blue-bg text-light ">
+                Save Changes
+              </button>
+            </form>
+          </div>
+
+          <form action="{{ route('edit-faculty', $faculty->id) }}" method="post"  enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
             
-          </div>
-          @error('faculty_id')
-                <div class="text-warning-plain">
+            @error('faculty_id')
+            <div class="text-warning-plain">
                     {{$message}}
-                </div>
-            @enderror
-          <div class="form-control">
-            <input
-              class="input"
-              type="text"
-              name="faculty_id"
-              id="facultyIdInput"
-              onkeyup="this.setAttribute('value', this.value);"
-              value=""
-            />
-            <label class="label" for="">Faculty ID no.</label>
-          </div>
-          <div>
-            <label for="type">Type</label>
-            <select name="faculty_type" id="facultyType">
-              <option value="regular">Regular</option>
-              <option value="part-timer">Part-Timer</option>
-            </select>
-          </div>
-          @error('faculty_email')
-                <div class="text-warning-plain">
+                  </div>
+                  @enderror
+                  <div class="form-control">
+                    <input
+                    class="input blue-border"
+                    type="text"
+                    name="faculty_id"
+                    onkeyup="this.setAttribute('value', this.value);"
+                    value="{{ $faculty->faculty_id }}"
+                    />
+                    <label class="label blue-text" for="">Faculty ID no.</label>
+                  </div>
+                  @error('faculty_email')
+                  <div class="text-warning-plain">
                     {{$message}}
-                </div>
+                  </div>
             @enderror
-          <div class="form-control">
-            <input
-              class="input"
+            <div class="form-control">
+              <input
+              class="input blue-border"
               type="email"
               name="faculty_email"
               onkeyup="this.setAttribute('value', this.value);"
-              value=""
-            />
-            <label class="label" for="">Email Address</label>
-          </div>
-          @error('faculty_lastname')
-                <div class="text-warning-plain">
-                    {{$message}}
-                </div>
+              value="{{ $faculty->faculty_email }}"
+              />
+              <label class="label blue-text" for="">Email Address</label>
+            </div>
+            @error('faculty_lastname')
+            <div class="text-warning-plain">
+              {{$message}}
+            </div>
             @enderror
-          <div class="form-control">
-            <input
-              class="input"
+            <div class="form-control">
+              <input
+              class="input blue-border"
               type="text"
               name="faculty_lastname"
               onkeyup="this.setAttribute('value', this.value);"
-              value=""
-            />
-            <label class="label" for="">Last Name</label>
+              value="{{ $faculty->faculty_lastname }}"
+              />
+              <label class="label blue-text" for="">Last Name</label>
           </div>
           @error('faculty_firstname')
-                <div class="text-warning-plain">
-                    {{$message}}
-                </div>
-            @enderror
+          <div class="text-warning-plain">
+            {{$message}}
+          </div>
+          @enderror
           <div class="form-control">
             <input
-              class="input"
-              type="text"
-              name="faculty_firstname"
-              onkeyup="this.setAttribute('value', this.value);"
-              value=""
+            class="input blue-border"
+            type="text"
+            name="faculty_firstname"
+            onkeyup="this.setAttribute('value', this.value);"
+            value="{{ $faculty->faculty_firstname }}"
             />
-            <label class="label" for="">First Name</label>
+            <label class="label blue-text" for="">First Name</label>
           </div>
-          <button class="btn btn-secondary" type="submit">Add Faculty</button>
+          {{-- <button class="btn btn-secondary blue blue-bg" type="submit">Save Changes</button> --}}
         </form>
-
-
+      </div>
+        
+        
         <div class="faculty">
           <form class="faculty-search" action="{{ route('faculty') }}" method="get">
             @csrf

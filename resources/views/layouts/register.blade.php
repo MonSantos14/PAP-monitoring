@@ -53,12 +53,12 @@
                 <input
                     class="input"
                     type="text"
-                    name="is_admin"
-                    id="is_admin"
+                    name="user_type"
+                    id="user_type"
                     onkeyup="this.setAttribute('value', this.value);"
                     value=""
                 />
-                <label class="label" for="is_admin">Is this user is an admin?</label>
+                <label class="label" for="user_type">Enter user type</label>
             </div>
             @error('password')
                 <div class="text-warning-plain">

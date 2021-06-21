@@ -14,12 +14,19 @@ class Faculty extends Model
         'faculty_firstname',
         'faculty_lastname',
         'faculty_fullname',
+        'faculty_college',
         'faculty_email',
         'faculty_image',
-        
+        'faculty_type'
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
+    }
+
+    public function proposalmember()
+    {
+        return $this->belongsTo(ProposalMember::class);
     }
 }
