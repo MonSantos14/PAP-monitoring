@@ -18,6 +18,7 @@ class CreatePartnersTable extends Migration
             $table->foreignId('user_id');
             $table->string('partner_image');
             $table->string('partner_name');
+
             $table->string('partner_email')->unique();
             $table->string('partner_number');
             $table->date('partner_expiration');

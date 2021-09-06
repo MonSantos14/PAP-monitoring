@@ -1,23 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/fe0adfa825.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <title>RMO Monitoring System</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="shortcut icon" type="image/jpg" href="../rmo-icon.jpg" />
+    <!-- Fontawesome-->
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Bootstrap-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- Main Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <title>PAP's-Monitoring System</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}"> 
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--Main CSS-->
+    <link rel="stylesheet" href="{{ asset('./css/main.css.map') }} "/>
+    <link rel="stylesheet" href="{{ asset('./css/normalize.css') }} "/>
+    <link rel="stylesheet" href="{{ asset('./css/main.css') }}" />
+  </head>
 <body>
-    <div class="navbar center-row">
+    {{-- <div class="navbar center-row">
         <div>
             <ul>
                 <h2>RDE</h2>
@@ -25,6 +45,9 @@
                     @if ( auth()->user()->user_type === "college")
                     <li>
                         <a href="{{ route('dashboard') }}">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('faculty') }}">Faculty</a>
                     </li>
                     <li>
                         <a href="{{ route('draft') }}">Drafts</a>
@@ -39,7 +62,7 @@
                                 <a href="{{ route('dashboard') }}">Dashboard</a>
                             </li>
                             <li>
-                                <a href="{{ route('draft') }}">Partners</a>
+                                <a href="{{ route('partners') }}">Partners</a>
                             </li> 
                         @endif
                     @endif
@@ -62,8 +85,22 @@
                 <li><a href="{{ route('login') }}">Login</a></li>
             @endguest
         </ul>
-    </div>
+    </div> --}}
     @yield('content')
+
+
+    <!-- Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Custom JS-->
+    <script src="{{ asset('./js/vendor/modernizr-3.11.2.min.js') }}"></script>
+    <script src="{{ asset('./js/plugins.js') }}"></script>
+    <script src="{{ asset('./js/main.js') }}"></script>
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
 

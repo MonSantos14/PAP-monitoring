@@ -18,11 +18,23 @@ class CreateProposalRequirementsTable extends Migration
             $table->timestamps();
             $table->foreignId('proposal_id')->constrained()->onDelete('cascade');
             $table->string('proposal_CRP')->nullable();
+            $table->string('proposal_CRP_status')->nullable();
+            $table->string('proposal_CRP_remarks')->nullable();
             $table->string('proposal_LIB')->nullable();
+            $table->string('proposal_LIB_status')->nullable();
+            $table->string('proposal_LIB_remarks')->nullable();
             $table->string('proposal_CVP')->nullable();
+            $table->string('proposal_CVP_status')->nullable();
+            $table->string('proposal_CVP_remarks')->nullable();
             $table->string('proposal_SDRPM')->nullable();
+            $table->string('proposal_SDRPM_status')->nullable();
+            $table->string('proposal_SDRPM_remarks')->nullable();
             $table->string('proposal_CERT')->nullable();
+            $table->string('proposal_CERT_status')->nullable();
+            $table->string('proposal_CERT_remarks')->nullable();
             $table->string('proposal_WP')->nullable();           
+            $table->string('proposal_WP_status')->nullable();           
+            $table->string('proposal_WP_remarks')->nullable();           
         });
     }
 

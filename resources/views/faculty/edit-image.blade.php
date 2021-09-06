@@ -15,7 +15,7 @@
           @error('faculty_image')
                 <div class="text-warning-plain">
                     {{$message}}
-                </div>
+                </div> 
           @enderror
           <div class="flex relative">
             <form class="" action="{{ route('edit-image', $faculty->id)}}" method="post">

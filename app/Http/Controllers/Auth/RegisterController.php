@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
-{
+{ 
     public function __construct()
     {
         $this->middleware(['guest']);
@@ -20,25 +20,21 @@ class RegisterController extends Controller
 
     public function store(Request $request) {
         $this->validate($request, [
-            'name' => 'required|max:255',
+            'office_name' => 'required|max:255',
             'email' => 'required|email|unique:users',
+            'campus' => 'required',
             'password' => 'required|confirmed',
             'user_type' => 'required',
         ]);
 
         User::create([
-            'name' => $request->name,
+            'office_name' => $request->office_name,
             'email' => $request->email,
+            'campus' => $request->campus,
             'password' => Hash::make($request->password),
             'user_type' => $request->user_type,
         ]);
 
-        dd('store');
-
-        // Sign in
-        auth()->attempt($request->only('email','password'));
-
-        // Redirect
-        return redirect()->route('dashboard');
+        return redirect()->route('register');
     }
 }

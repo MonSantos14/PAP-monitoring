@@ -43,6 +43,6 @@ class PartnersController extends Controller
             'partner_image' => $partnerImage
         ]);
 
-        dd('Stored');
+        return back();
     }
 }

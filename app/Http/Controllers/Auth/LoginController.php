@@ -27,6 +27,14 @@ class LoginController extends Controller
             return back()->with('status','Invalid Credentials');
         }
 
-        return redirect()->route('dashboard');
+        if(auth()->user()->user_type == 'College')
+        {
+            return redirect()->route('dashboard-college');
+        }
+
+        if(auth()->user()->user_type == 'Proponent')
+        {
+            return redirect()->route('dashboard-proponent');
+        }
     }
 }

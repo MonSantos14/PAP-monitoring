@@ -1,6 +1,7 @@
 @extends('index')
 
 @section('content')
+
     <section class="section-A">`
         <div class="contain">
         <div class="buttons">

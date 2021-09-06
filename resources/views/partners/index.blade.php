@@ -24,8 +24,22 @@
                 name="partner_image"
                 id="file-input"
                 >
-                
             </div>
+            {{-- @error('partner_moa')
+                    <div class="text-warning-plain">
+                        {{$message}}
+                    </div>
+                @enderror
+            <div class="form-control">
+                <input
+                class="input"
+                type="file"
+                name="partner_moa"
+                onkeyup="this.setAttribute('value', this.value);"
+                accept=".pdf"
+                />
+                <label class="label" for="">Memorandum of Agreement</label>
+            </div> --}}
             @error('partner_email')
                     <div class="text-warning-plain">
                         {{$message}}
@@ -36,7 +50,6 @@
                 class="input"
                 type="email"
                 name="partner_email"
-                maxlength="11"
                 onkeyup="this.setAttribute('value', this.value);"
                 value=""
                 />

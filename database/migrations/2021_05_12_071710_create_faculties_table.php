@@ -15,9 +15,10 @@ class CreateFacultiesTable extends Migration
     {
         Schema::create('faculties', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id');
             $table->string('faculty_id');
             $table->string('faculty_firstname');
+            $table->string('faculty_middlename')->nullable();
             $table->string('faculty_lastname');
             $table->string('faculty_fullname');
             $table->string('faculty_college');

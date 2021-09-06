@@ -16,10 +16,18 @@ class CreateProposalsTable extends Migration
         Schema::create('proposals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('proposal_refID');
             $table->string('proposal_title');
-            $table->integer('proposal_duration');
+            $table->integer('proposal_duration')->nullable();
             $table->string('proposal_leader')->nullable();
-            $table->char('proposal_status')->default('new');
+            $table->string('proposal_read')->default('new');
+            $table->char('proposal_status')->default('Draft');
+            $table->char('proposal_location')->default('Proponent');
+            $table->string('year')->nullable();
+            $table->string('quarter');
+            $table->string('college');
+            $table->integer('counter');
+            $table->date('submitted_at');
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@
         @endif
         <form action="{{ route('register') }}" class="form" method="post">
             @csrf
-            @error('name')
+            @error('office_name')
                 <div class="text-warning-plain">
                     {{$message}}
                 </div>
@@ -21,12 +21,12 @@
                 <input
                     class="input"
                     type="text"
-                    name="name"
-                    id="name"
+                    name="office_name"
+                    id="office_name"
                     onkeyup="this.setAttribute('value', this.value);"
-                    value="{{ old('name')}}"
+                    value="{{ old('office_name')}}"
                 />
-                <label class="label" for="name">Name</label>
+                <label class="label" for="office_name">Name</label>
             </div>
             @error('email')
                 <div class="text-warning-plain">
@@ -44,7 +44,7 @@
                 />
                 <label class="label" for="email">Email Address</label>
             </div>
-            @error('is_admin')
+            @error('user_type')
                 <div class="text-warning-plain">
                     {{$message}}
                 </div>
@@ -59,6 +59,22 @@
                     value=""
                 />
                 <label class="label" for="user_type">Enter user type</label>
+            </div>
+            @error('campus')
+                <div class="text-warning-plain">
+                    {{$message}}
+                </div>
+            @enderror
+            <div class="form-control">
+                <input
+                    class="input"
+                    type="text"
+                    name="campus"
+                    id="campus"
+                    onkeyup="this.setAttribute('value', this.value);"
+                    value=""
+                />
+                <label class="label" for="campus">Campus</label>
             </div>
             @error('password')
                 <div class="text-warning-plain">

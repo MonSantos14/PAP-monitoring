@@ -13,7 +13,15 @@ class Proposal extends Model
         'proposal_title',
         'proposal_duration',
         'proposal_leader',
-        'proposal_status'   
+        'proposal_read',
+        'proposal_refID',
+        'proposal_location',
+        'proposal_status',   
+        'submitted_at',   
+        'counter',
+        'quarter',
+        'college',
+        'year',
     ];
 
     public function user()
@@ -38,5 +46,10 @@ class Proposal extends Model
     public function requirements()
     {
         return $this->hasOne(ProposalRequirements::class);
+    }
+
+    public function endorsement()
+    {
+        return $this->hasOne(ChanEndorsement::class);
     }
 }

@@ -30,7 +30,7 @@
                         />
                         <label class="label" for="proposal_title">Project Title</label>
                     </div>
-                    @error('proposal_duration')
+                    {{-- @error('proposal_duration')
                         <div class="text-warning-plain">
                             {{$message}}
                         </div>
@@ -45,7 +45,7 @@
                         value=""
                         />
                         <label class="label" for="proposal_duration">Project Duration (Month/s)</label>
-                    </div>
+                    </div> --}}
                     {{-- @error('proposal_leader')
                         <div class="text-warning-plain">
                             {{$message}}
@@ -62,21 +62,6 @@
                         />
                         <label class="label" for="proposal_leader">Project Leader</label>
                     </div> --}}
-
-                    <div>
-                        <input class="block" type="file" accept=".pdf" name="proposal_CRP">
-                        <label for="proposal_CRP">Capsule Research Proposal</label>
-                        <input class="block" type="file" accept=".pdf" name="proposal_LIB">
-                        <label for="proposal_LIB">Line Item Budget</label>
-                        <input class="block" type="file" accept=".pdf" name="proposal_CVP">
-                        <label for="proposal_CVP">Curriculum Vitae of the Program/Project Leader</label>
-                        <input class="block" type="file" accept=".pdf" name="proposal_SDRPM">
-                        <label for="proposal_SDRPM">Curriculum Vitae of the Program/Project Leader</label>
-                        <input class="block" type="file" accept=".pdf" name="proposal_CERT">
-                        <label for="proposal_CERT">Certification</label>
-                        <input class="block" type="file" accept=".pdf" name="proposal_WP">
-                        <label for="proposal_WP">Work Plan</label>
-                    </div>
 
                     <button class="btn btn-secondary" type="submit">
                         Create Proposal
